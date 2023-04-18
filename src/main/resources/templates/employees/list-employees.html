@@ -36,7 +36,8 @@
 
                         <!-- Add update button link -->
                         <td>
-                            <a class="btn btn-info btn-sm">Update</a>
+                            <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
+                               class="btn btn-info btn-sm">Update</a>
 
                             <!-- Add "delete" button/link -->
                             <a class="btn btn-danger btn-sm">Delete</a>
