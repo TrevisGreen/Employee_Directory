@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -48,6 +49,15 @@ public class EmployeeController {
         employeeService.save(theEmployee);
 
         // use a redirect to prevent duplicate submissions
+        return "redirect:/employees/list";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("employeeId") int theId) {
+        // delete the employee
+        employeeService.deleteById(theId);
+
+        // redirect to the "/employees/list"
         return "redirect:/employees/list";
     }
 
